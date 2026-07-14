@@ -13,7 +13,7 @@ class CarModel(Base):
     __tablename__ = 'cars'
     id = Column(Integer, primary_key=True, autoincrement=True)
     license_plate = Column(String(20), nullable=False)
-    status = CarStatus
+    status = Column(Enum(CarStatus), nullable=False)
 
     bookings = relationship(
         'BookingModel',
