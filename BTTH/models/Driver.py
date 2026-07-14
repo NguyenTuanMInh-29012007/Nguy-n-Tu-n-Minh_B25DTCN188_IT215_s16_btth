@@ -5,7 +5,7 @@ from enum import Enum
 
 
 class DriverStatus(str, Enum):
-    ACTIVE = 'ACTIVE '
+    ACTIVE = 'ACTIVE'
     INACTIVE = 'INACTIVE'
 
 
@@ -13,7 +13,7 @@ class DriverModel(Base):
     __tablename__ = 'drivers'
     id = Column(Integer, primary_key=True, autoincrement=True)
     full_name = Column(String(100), nullable=False)
-    status = DriverStatus
+    status = Column(Enum(DriverStatus), nullable=False)
 
     fleet_id = Column(Integer, ForeignKey("fleets.id"))
 
